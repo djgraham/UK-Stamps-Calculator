@@ -11,11 +11,11 @@ class Stamps
     denominations
   end
 
-  def self.calculate value
+  def self.calculate value, available_denominations = denominations
 	value
 	stamps = []
 	while value > 0 do
-	  denominations.each do |stamp|
+	  available_denominations.each do |stamp|
             if stamp <= value
               stamps << stamp
 	      value = value - stamp
@@ -32,7 +32,16 @@ class Stamps
 
 end
 
-
-puts Stamps::calculate(1234)
-puts ""
+puts "Stamps test 1"
+puts "We have a parcel to post at 293, and we have all stamp denominations available"
 puts Stamps::calculate(293)
+
+puts ""
+puts "Stamps test 2"
+puts "We have a parcel to post at 293, and we have: 1st class stamps (46p), 2nd class (36p), and 1p, 2p, 5p and 10p"
+puts Stamps::calculate(293, [1,2,5,10,46,36].sort.reverse)
+
+puts ""
+puts "Stamps test 3"
+puts "We have 1st class stamps (46p), 2nd class (36p), and 1p, 2p, 5p"
+puts Stamps::calculate(293, [1,2,5,46,36].sort.reverse)
