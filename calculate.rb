@@ -33,15 +33,20 @@ class Stamps
 end
 
 puts "Stamps test 1"
-puts "We have a parcel to post at 293, and we have all stamp denominations available"
+puts "We have a parcel to post at 293 (Recorded 2nd Class), and we have all stamp denominations available"
 puts Stamps::calculate(293)
 
 puts ""
-puts "Stamps test 2"
-puts "We have a parcel to post at 293, and we have: 1st class stamps (46p), 2nd class (36p), and 1p, 2p, 5p and 10p"
+puts "Stamps test 2, Parcel costing 293"
+puts "We have: 1st class stamps (46p), 2nd class (36p), and 1p, 2p, 5p and 10p"
 puts Stamps::calculate(293, [1,2,5,10,46,36].sort.reverse)
 
 puts ""
-puts "Stamps test 3"
+puts "Stamps test 3, Parcel costing 293"
 puts "We have 1st class stamps (46p), 2nd class (36p), and 1p, 2p, 5p"
 puts Stamps::calculate(293, [1,2,5,46,36].sort.reverse)
+
+puts ""
+puts "Stamps test 4, Standard Parcel costing 441"
+puts "We have Euro stamps (68p), 1st class stamps (46p), 2nd class (36p), and 1p, 2p, 5p"
+puts Stamps::calculate(441, [1,2,5,46,36,68].sort.reverse)
